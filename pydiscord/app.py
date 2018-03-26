@@ -144,7 +144,7 @@ async def start_job(message):
 
 async def stop_job(message):
     author = str(message.author)
-    password = "knownpass"
+    password = "examplePass"
     if (user_has_servers(author)):
         servers = servers_from_worker(author)
         items_created = 0
