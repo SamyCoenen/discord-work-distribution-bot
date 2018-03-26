@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db_inventory:
+    build: ./mariadb/
+    environment:
+     - MYSQL_ROOT_PASSWORD=th6k5gfdkgf54
+    restart: always
+    ports:
+     - "3306:3306"
+    volumes:
+     - ./mysql_data:/var/lib/mysql
+  inventory_discord:
+    build: ./pydiscord
+    restart: always
+    volumes:
+     - ./ssh:/root/.ssh/
+  inventory-api:
+    build: ./pyflask
+    restart: always
+    ports:
+     - "5001:5000"
+
